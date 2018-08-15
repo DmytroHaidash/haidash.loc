@@ -1,7 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Надюшечка
- * Date: 13.08.2018
- * Time: 20:53
- */
+/*Вывести 10 первых степеней двойки.*/
+$base = 2;
+$exp = 1;
+while ($exp <=10){
+    $res = pow($base, $exp);
+    echo $base . " в ". $exp  . " степени равно " . $res . "<br>";
+    $exp++;
+}
+?>
+

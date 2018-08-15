@@ -1,4 +1,4 @@
-<!--factorial-->
+<!--Вычислить факториал заданного числа.-->
 <html>
 <body>
 <form method="GET">
@@ -12,7 +12,7 @@ if ($n<0){
     echo "enter correct number";
 } else {
     for ($i = 1; $i <= $n; $i++) {
-        $fact = $fact*$i;
+        $fact *= $i;
     }
 
     echo $fact;

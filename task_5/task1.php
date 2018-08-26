@@ -1,6 +1,6 @@
-<!--Создать функцию в PHP — getPlus10(), которая будет принимать
-число и распечатывать сумму этого числа и 10.-->
-
+<!--Создать массив из 10 случайных целых чисел, найти в нём первое
+соответствие с тем числом, которое ввёл пользователь в форму.
+Вывести число и его индекс.-->
 <html>
 <body>
 <form method="GET">
@@ -8,14 +8,22 @@
     <input type="submit" value = "Отправить">
 </form>
 <?php
-if (isset($_POST['button'])) {
-    function getPlus10($a)
-    {
-        echo "Ваше число + 10 равно: " . ($a + 10);
-    }
-
-    getPlus10($a = $_GET['int']);
+$a = $_GET['int'];
+$arr = [];
+for ($i=0; $i<10; $i++){
+    $arr[] = rand(-5,10);
 }
+var_dump($arr);
+echo "</br>";
+
+foreach ($arr as $key => $value){
+    if ($value == $a){
+        echo "[$key] => ", $value;
+        break;
+    }
+}
+
+
 ?>
 </body>
 </html>

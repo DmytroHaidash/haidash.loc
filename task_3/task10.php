@@ -1,23 +1,30 @@
-<!--Сформировать из введенного числа обратное по порядку входящих в него цифр и вывести на
-экран. Например, если введено число 3486, то надо вывести число 6843
--->
+<?php
+/*Дано целое число, лежащее в диапазоне 1-999. Вывести его строку описание вида
+«четное двузначное число», «нечетное трехзначное число» и т. д.*/
+?>
 <html>
 <body>
 <form method="POST">
-    Введите цифру которую я выведу в обратном порядке:
-    <input type="text" name="a" value="<?php echo($_POST['a']); ?>"><br/>
+    Введите число: <input type="text" name="number" value="<?php echo($_POST['number']); ?>"><br/>
     <input type="submit" value="Отправить">
 </form>
 <?php
-$output="";
-if ($_POST['a'] < 0) {
-    echo "Введите положительное число!";
-} else {
-    $str_arr = array_reverse(str_split($_POST['a']));
-    foreach ($str_arr as $num) {
-        $output.=$num;
+if ($_POST['number']>0 && $_POST['number']<1000){
+    if ($_POST['number']%2==0){
+        $type1="Четное ";
+    }else{
+        $type1="Нечетное ";
     }
-    echo $output;
+    if ($_POST['number']/100>=1){
+        $type2="трехзначное число";
+    }elseif($_POST['number']/10>=1){
+        $type2="двузначное число";
+    }else{
+        $type2="однозначное число";
+    }
+    echo $type1 . $type2;
+}else{
+    echo "Введите цифру от 1 до 999!";
 }
 ?>
 </body>

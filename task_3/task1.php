@@ -1,23 +1,20 @@
 <?php
-/*Дано натуральное n.
-Вычислить: 1 + 1/2 + 1/3 + 1/4 + ... + 1/n.*/
+/*Если переменная $a равна 'test', то выведите 'Верно', иначе выведите 'Неверно'.
+Проверьте работу скрипта при $a, равном 'test', 'тест', 4. (Форма GET)*/
 ?>
 <html>
 <body>
 <form method="GET">
-A: <input type="text" name="a" >
-<input type="submit" value="Отправить">
+    Variable a: <input type ="text" name="name_a">
+    <input type="submit" value = "Отправить">
 </form>
 <?php
-$n = $_GET['a'];
-$sum=0;
-if ($n<0){
-    echo "enter correct number";
-} else {
-    for ($i = 1; $i <= $n; $i++) {
-        $sum += +1 / $i;
-    }
-
-    echo $sum;
+$a = $_GET['name_a'];
+if($a == 'test'){
+    echo "yes, compare a = ".$a;
+}else {
+    echo "No, try again";
 }
 ?>
+</body>
+</html>

@@ -1,29 +1,23 @@
-<!--Создать массив из 10 случайных целых чисел, найти в нём первое
-соответствие с тем числом, которое ввёл пользователь в форму.
-Вывести число и его индекс.-->
+<?php
+/*Дано натуральное n.
+Вычислить: 1 + 1/2 + 1/3 + 1/4 + ... + 1/n.*/
+?>
 <html>
 <body>
 <form method="GET">
-    Введите число: <input type ="text" name="int">
-    <input type="submit" value = "Отправить">
+A: <input type="text" name="a" >
+<input type="submit" value="Отправить">
 </form>
 <?php
-$a = $_GET['int'];
-$arr = [];
-for ($i=0; $i<10; $i++){
-    $arr[] = rand(-5,10);
-}
-var_dump($arr);
-echo "</br>";
-
-foreach ($arr as $key => $value){
-    if ($value == $a){
-        echo "[$key] => ", $value;
-        break;
+$n = $_GET['a'];
+$sum=0;
+if ($n<0){
+    echo "enter correct number";
+} else {
+    for ($i = 1; $i <= $n; $i++) {
+        $sum += +1 / $i;
     }
+
+    echo $sum;
 }
-
-
 ?>
-</body>
-</html>

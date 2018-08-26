@@ -1,37 +1,30 @@
-<!--В программе генерируется случайное целое число от 0 до 100.
-Пользователь должен его отгадать не более чем за 10 попыток.
-После каждой неудачной попытки должно сообщаться больше или меньше введенное пользователем число,
-чем то, что загадано.
-Если за 10 попыток число не отгадано, то вывести загаданное число.-->
+<?php
+/*Необходимо написать программу, которая проверяет пользователя на знание
+таблицы умножения. Пользователь сам вводит два целых однозначных числа.
+Программа задаёт вопрос: результат умножения первого числа на второе.
+Пользователь должен ввести ответ и увидеть на экране правильно он ответил или
+нет. Если нет – показать еще и правильный результат.*/
+?>
 <html>
 <body>
 <form method="POST">
-    <input type="hidden" name="SecretNumber" value="<?php echo $SecretNumber ?>" />
-    <input type="number" name="num" value="<?php echo($_POST['num']); ?>"><br />
-    <input type="submit" value="Отправить"><br />
+    <h1>Таблица умножения</h1>
+    Введите первое число: <input type="text" name="first_n" value="<?php echo($_POST['first_n']); ?>">
+    Введите второе число: <input type="text" name="second_n" value="<?php echo($_POST['second_n']); ?>"><br/>
+    Введите результат умножения первого и второго числа: <input type="text" name="result"
+                                                                value="<?php echo($_POST['result']); ?>"><br/>
+    <input type="submit" value="Отправить">
 </form>
 <?php
-$number = $_POST["number"];
-$step = 0;
-if (empty($SecretNumber)){
-    $SecretNumber = rand(1,100);
-}
-echo "litle surp $SecretNumber";
-if($step <=10){
-    while ($number != $SecretNumber){
-        if ($number > $SecretNumber){
-            echo "Too big.";
-            $step++;
-        }
-        elseif ($number < $SecretNumber){
-            echo "Too small.";
-            $step++;
-        }
-    }
-    echo "Yeah! You answered after $step attempts! yes it was $SecretNumber";
-}else {
-    echo "sorry, but you don't guess my number it's was $SecretNumber";
 
+if ($_POST['first_n']>=0 && $_POST['first_n']<10 && $_POST['second_n']>=0 && $_POST['second_n']<10){
+    if($_POST['result']==$_POST['first_n']*$_POST['second_n']){
+        echo "Это правильный ответ!";
+    }else{
+        echo "Неверно! Правильный ответ ". $_POST['first_n']*$_POST['second_n'];
+    }
+}else{
+    echo "Первое и второе число должны быть целыми однозначными цифрами";
 }
 ?>
 </body>

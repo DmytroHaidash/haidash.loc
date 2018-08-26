@@ -8,6 +8,7 @@ for ($row =0; $row <3; $row++) {
    echo "<br>";
 
     foreach ($arra[$row] as $key => $value) {
+
         echo  $value ."<br>" ;
     }
 

@@ -1,15 +1,20 @@
-<!--Есть массив $arr = array(“first”=>45, “second”=>76,
-“third”=>12). Написать функцию, чтобы получить массив,
-элементами которого являются ключи массива $arr.-->
+<!--Найти среднее арифметическое элементов с нечетными номерами.-->
+
 <?php
-$arr=["first"=>45, "second"=>76, "third"=>12];
-$new_arr=[];
-function getArrKeys($array){
-    foreach ($array as $key =>$value){
-        $new_arr[]=$key;
-    }
-    echo "<pre>";
-    var_dump($new_arr);
-    echo "<pre>";
+$arr = [];
+for ($i=0; $i<20; $i++){
+    $arr[] = rand(0,100);
 }
-getArrKeys($arr);
+var_dump($arr);
+echo "</br>";
+
+foreach ($arr as $key => $value){
+    if ($key%2 !=0 ){
+        $average += $value;
+       // break;
+    }
+}
+echo "среднее арифметическое элементов с нечетными номерами = $average";
+
+
+?>
